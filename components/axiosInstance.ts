@@ -1,8 +1,8 @@
 // axiosInstance.ts
 import axios from "axios"
 
-const isDevelopment = import.meta.env.MODE === 'development'
-const myBaseUrl = isDevelopment ? import.meta.env.VITE_API_BASE_URL_LOCAL : import.meta.env.VITE_API_BASE_URL_DEPLOY
+const isDevelopment = process.env.MODE === 'development'
+const myBaseUrl = isDevelopment ? process.env.VITE_API_BASE_URL_LOCAL : process.env.VITE_API_BASE_URL_DEPLOY
 
 const api = axios.create({
   baseURL: myBaseUrl,
@@ -27,7 +27,7 @@ api.interceptors.response.use(
       originalRequest._retry = true
       try {
         const refresh = localStorage.getItem("refresh_token")
-        const res = await axios.post(`${myBaseUrl}/api/auth/token/refresh/`, { refresh })
+        const res = await axios.post(`${myBaseUrl}api/auth/token/refresh/`, { refresh })
         localStorage.setItem("access_token", res.data.access)
         originalRequest.headers["Authorization"] = `Bearer ${res.data.access}`
         return api(originalRequest)

@@ -4,8 +4,8 @@ import type React from "react"
 import { createContext, useContext, useState, useEffect } from "react"
 
 
-const isDevelopment = import.meta.env.MODE === 'development'
-const myBaseUrl = isDevelopment ? import.meta.env.VITE_API_BASE_URL_LOCAL : import.meta.env.VITE_API_BASE_URL_DEPLOY
+const isDevelopment = process.env.NODE_ENV === 'development'
+const myBaseUrl = isDevelopment ? process.env.VITE_API_BASE_URL_LOCAL : process.env.VITE_API_BASE_URL_DEPLOY
 
 
 interface User {
