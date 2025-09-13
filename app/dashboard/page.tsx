@@ -20,7 +20,7 @@ import Link from "next/link"
 
 export default function DashboardHome() {
   const { user } = useAuth()
-
+ const userName = typeof window === "undefined" ? "Guest" : user?.name || "Guest"
   const features = [
     {
       icon: MessageCircle,
