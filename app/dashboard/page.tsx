@@ -120,7 +120,7 @@ export default function DashboardHome() {
           <div className="flex items-center space-x-4">
             <SidebarTrigger />
             <div>
-              <h1 className="text-2xl md:text-3xl font-bold text-gray-900">Welcome to Taleem Edge, {user?.name}! 👋</h1>
+              <h1 className="text-2xl md:text-3xl font-bold text-gray-900">Welcome to Taleem Edge, {userName}! 👋</h1>
               <p className="text-gray-600 mt-1">Let's explore what you can do on this platform</p>
             </div>
           </div>
