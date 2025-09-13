@@ -72,6 +72,7 @@ export default function AdminSettingsPage() {
 
   // Fetch settings on component mount
   useEffect(() => {
+    if (typeof window === "undefined") return;
     fetchSettings()
   }, [])
 

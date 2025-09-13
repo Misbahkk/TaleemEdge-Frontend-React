@@ -98,6 +98,7 @@ export default function AdminScholarshipsPage() {
   }
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
     fetchScholarships()
   }, [])
 

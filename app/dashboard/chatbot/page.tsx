@@ -80,11 +80,13 @@ export default function ChatbotPage() {
   }
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
     scrollToBottom()
   }, [messages])
 
   // Load sessions and restore last active session on component mount
   useEffect(() => {
+    if (typeof window === "undefined") return;
     loadSessions()
   }, [])
 

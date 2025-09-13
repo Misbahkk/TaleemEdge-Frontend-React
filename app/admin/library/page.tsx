@@ -61,6 +61,7 @@ export default function AdminLibraryPage() {
 
   // Fetch books and categories on component mount
   useEffect(() => {
+    if (typeof window === "undefined") return;
     fetchBooks()
     fetchCategories()
   }, [])

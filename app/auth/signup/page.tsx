@@ -31,6 +31,7 @@ export default function SignUpPage() {
 
   // Django API signup function
   const signupWithDjango = async (userData: typeof formData) => {
+    if (typeof window === "undefined") return;
     try {
       const response = await fetch("http://127.0.0.1:8000/api/auth/register/", {
         method: "POST",
@@ -54,6 +55,7 @@ export default function SignUpPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    if (typeof window === "undefined") return;
     setError(null)
     
     // Validate passwords match

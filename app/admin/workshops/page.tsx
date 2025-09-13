@@ -99,6 +99,7 @@ function AdminWorkshopsContent() {
 
   // Fetch initial data
   useEffect(() => {
+    if (typeof window === "undefined") return;
     fetchWorkshops()
     fetchCategories()
     fetchStats()

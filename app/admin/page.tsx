@@ -36,6 +36,7 @@ export default function AdminDashboard() {
   ]
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
     fetchDashboardData()
   }, [])
 
