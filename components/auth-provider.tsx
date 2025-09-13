@@ -5,7 +5,7 @@ import { createContext, useContext, useState, useEffect } from "react"
 
 
 const isDevelopment = process.env.NODE_ENV === 'development'
-const myBaseUrl = isDevelopment ? process.env.VITE_API_BASE_URL_LOCAL : process.env.VITE_API_BASE_URL_DEPLOY
+const myBaseUrl = isDevelopment ? process.env.NEXT_PUBLIC_API_BASE_URL_LOCAL : process.env.NEXT_PUBLIC_API_BASE_URL_DEPLOY
 
 
 interface User {

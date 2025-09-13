@@ -2,7 +2,7 @@
 import axios from "axios"
 
 const isDevelopment = process.env.MODE === 'development'
-const myBaseUrl = isDevelopment ? process.env.VITE_API_BASE_URL_LOCAL : process.env.VITE_API_BASE_URL_DEPLOY
+const myBaseUrl = isDevelopment ? process.env.NEXT_PUBLIC_API_BASE_URL_LOCAL : process.env.NEXT_PUBLIC_API_BASE_URL_DEPLOY
 
 const api = axios.create({
   baseURL: myBaseUrl,
