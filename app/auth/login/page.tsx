@@ -26,13 +26,13 @@ export default function LoginPage() {
 
   // Django API login function
   const loginWithDjango = async (email: string, password: string) => {
+     if (typeof window === "undefined") return null;
     try {
       const response = await api.post("/auth/login/", { email, password })
         
      
       const data = await response.data
-      console.log(data)
-
+     
       // if (!response.ok) {
       //   throw new Error(data.email?.[0] || data.password?.[0] || data.non_field_errors?.[0] || data.message || "Login failed")
       // }
@@ -45,6 +45,7 @@ export default function LoginPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+     if (typeof window === "undefined") return;
     setError(null)
     setSuccess(null)
     setIsLoading(true)
