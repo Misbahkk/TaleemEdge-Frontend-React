@@ -57,6 +57,7 @@ export default function YouTubePage() {
 
   // Load videos on component mount
   useEffect(() => {
+     if (typeof window === "undefined") return;
     fetchVideos()
   }, [])
 
