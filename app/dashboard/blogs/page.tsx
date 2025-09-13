@@ -50,6 +50,7 @@ export default function BlogsPage() {
   const allTags = Array.from(new Set(blogs.flatMap((blog) => blog.tags_list)))
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
     const fetchData = async () => {
       try {
         setLoading(true)

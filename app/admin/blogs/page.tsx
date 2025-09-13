@@ -78,6 +78,8 @@ export default function AdminBlogsPage() {
   // Fetch blog posts
   useEffect(() => {
     const fetchBlogs = async () => {
+      if (typeof window === "undefined") return;
+
       try {
         setLoading(true)
         setError(null)
@@ -116,6 +118,8 @@ export default function AdminBlogsPage() {
     }
 
     try {
+      if (typeof window === "undefined") return;
+
       setSubmitLoading(true)
       setError(null)
       

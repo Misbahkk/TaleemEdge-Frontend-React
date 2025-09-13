@@ -239,6 +239,7 @@ export default function IntegratedLibraryPage() {
 
   // Load data on component mount
   useEffect(() => {
+    if (typeof window === "undefined") return;
     const loadData = async () => {
       await Promise.all([
         fetchBooks(),

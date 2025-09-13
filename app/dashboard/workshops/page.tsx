@@ -201,12 +201,14 @@ export default function WorkshopsPage() {
 
   // Fetch data on component mount
   useEffect(() => {
+    if (typeof window === "undefined") return;
     fetchCategories()
     fetchEnrollmentData()
   }, [])
 
   // Fetch workshops when filters change
   useEffect(() => {
+    if (typeof window === "undefined") return;
     const timeoutId = setTimeout(() => {
       fetchWorkshops()
     }, 300)

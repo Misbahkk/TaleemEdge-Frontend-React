@@ -145,6 +145,7 @@ export default function DynamicScholarshipsPage() {
   }
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
     fetchScholarships()
   }, [])
 

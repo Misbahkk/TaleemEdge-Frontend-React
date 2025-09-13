@@ -132,6 +132,7 @@ export default function MentorshipPage() {
 
   // Load mentors on component mount
   useEffect(() => {
+    if (typeof window === "undefined") return;
     fetchMentors()
   }, [])
 
