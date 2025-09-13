@@ -71,6 +71,7 @@ export default function AdminYouTubePage() {
 
   // Load videos on component mount
   useEffect(() => {
+    if (typeof window === "undefined") return;
     fetchVideos()
   }, [])
 
