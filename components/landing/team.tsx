@@ -9,12 +9,17 @@ export function Team() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  
+const isDevelopment = process.env.NODE_ENV === 'development'
+const myBaseUrl = isDevelopment ? process.env.NEXT_PUBLIC_API_BASE_URL_LOCAL : process.env.NEXT_PUBLIC_API_BASE_URL_DEPLOY
+
+
   // Fetch mentors from API
   useEffect(() => {
     const fetchMentors = async () => {
       try {
         setLoading(true);
-        const response = await fetch('http://127.0.0.1:8000/api/mentore/student/mentors/');
+        const response = await fetch(`${myBaseUrl}}/mentore/student/mentors/`);
         
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);

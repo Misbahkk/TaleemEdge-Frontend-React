@@ -29,11 +29,15 @@ export default function SignUpPage() {
   const { login, loginWithOAuth } = useAuth()
   const router = useRouter()
 
+const isDevelopment = process.env.NODE_ENV === 'development'
+const myBaseUrl = isDevelopment ? process.env.NEXT_PUBLIC_API_BASE_URL_LOCAL : process.env.NEXT_PUBLIC_API_BASE_URL_DEPLOY
+
+
   // Django API signup function
   const signupWithDjango = async (userData: typeof formData) => {
     if (typeof window === "undefined") return;
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/auth/register/", {
+      const response = await fetch(`${myBaseUrl}/auth/register/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

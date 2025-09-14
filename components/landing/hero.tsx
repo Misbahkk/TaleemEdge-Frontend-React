@@ -23,12 +23,17 @@ interface HeroData {
     secondary: { text: string; link: string }
   }
 }
-const BASE_URL = "http://127.0.0.1:8000"
+// const BASE_URL = "http://127.0.0.1:8000"
+
+const isDevelopment = process.env.NODE_ENV === 'development'
+const myBaseUrl = isDevelopment ? process.env.NEXT_PUBLIC_API_BASE_URL_LOCAL : process.env.NEXT_PUBLIC_API_BASE_URL_DEPLOY
+
+
 export function Hero() {
   const [data, setData] = useState<HeroData | null>(null)
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/hero-section/")
+    fetch(`${myBaseUrl}/hero-section/`)
       .then((res) => res.json())
       .then((json) => setData(json))
       .catch((err) => console.error("Error fetching hero section:", err))
@@ -114,11 +119,11 @@ export function Hero() {
                 {data.hero_video ? (
                   <video
                     className="w-full h-full object-cover"
-                   poster={data.video_poster ? `${BASE_URL}${data.video_poster}` : "/placeholder.svg"}
+                   poster={data.video_poster ? `${myBaseUrl}${data.video_poster}` : "/placeholder.svg"}
                     controls
                     preload="metadata"
                   >
-                     <source src={`${BASE_URL}${data.hero_video}`} type="video/mp4" />
+                     <source src={`${myBaseUrl}${data.hero_video}`} type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                 ) : (
