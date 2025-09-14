@@ -194,7 +194,7 @@ const myBaseUrl = isDevelopment ? process.env.NEXT_PUBLIC_API_BASE_URL_LOCAL : p
                 <SelectContent>
                   <SelectItem value="student">Student</SelectItem>
                   <SelectItem value="teacher">Teacher</SelectItem>
-                  <SelectItem value="admin">Admin</SelectItem>
+                  
                 </SelectContent>
               </Select>
             </div>
