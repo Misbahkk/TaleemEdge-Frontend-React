@@ -19,7 +19,7 @@ const myBaseUrl = isDevelopment ? process.env.NEXT_PUBLIC_API_BASE_URL_LOCAL : p
     const fetchMentors = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`${myBaseUrl}}/mentore/student/mentors/`);
+        const response = await fetch(`${myBaseUrl}/mentore/student/mentors/`);
         
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
